@@ -1,0 +1,10 @@
+E:\dev\PassManager\PassManager\bin\Debug\PassManager.exe.config
+E:\dev\PassManager\PassManager\bin\Debug\PassManager.exe
+E:\dev\PassManager\PassManager\bin\Debug\PassManager.pdb
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.csprojResolveAssemblyReference.cache
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.fMain.resources
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.Properties.Resources.resources
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.csproj.GenerateResource.Cache
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.exe
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.pdb
+E:\dev\PassManager\PassManager\obj\Debug\PassManager.fManager.resources
