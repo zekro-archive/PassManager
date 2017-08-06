@@ -11,6 +11,65 @@ namespace PassManager
     class cCrypt
     {
 
+        public static Database currentDatabase;
+
+
+        [Serializable]
+        public class Database
+        {
+            public List<Account> accounts = new List<Account>();
+        }
+        
+
+        public class Account
+        {
+            public string name;
+            public string username;
+            public byte[] key;
+            public string url;
+            public string notes;
+        }
+        
+
+        public static void addAccount(string name, string username, string password, string url, string notes)
+        {
+            Account acc = new Account();
+            acc.name = name;
+            acc.username = username;
+            acc.url = url;
+            acc.notes = notes;
+
+            Aes aes = Aes.Create();
+            byte[] assambedKey = new byte[48];
+            Array.Copy(aes.IV, assambedKey, 16);
+            Array.Copy(getKey(password), assambedKey, 32);
+            acc.key = assambedKey;
+
+            currentDatabase.accounts.Add(acc);
+            
+        }
+
+        public static string getPass(byte[] key)
+        {
+            byte[] rawKey = key.Skip(16).ToArray();
+            string rawPass = Encoding.UTF8.GetString(rawKey);
+            return rawPass.Substring(rawPass.IndexOf("²"));
+        }
+
+        public static byte[] getKey(string password)
+        {
+            string pass = password;
+            if (password.Length < 32)
+            {
+                for (int i = password.Length; i < 32; i++)
+                {
+                    pass += "²";
+                }
+            }
+
+            return Encoding.UTF8.GetBytes(pass); ;
+        }
+
         /// <summary>
         /// Encryption of the entered input text with a 32 byte key and a 16 byte initialization vector
         /// </summary>
